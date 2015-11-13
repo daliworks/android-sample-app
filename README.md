@@ -22,7 +22,3 @@
 ## 2. ScreenShots
 
 ![Thingplus Sample Application capture](/assets/thingplus_sample_capture.png)
-
-![Thingplus Sample Application capture](/assets/thingplus_sample_capture_2.png)
-
-![Thingplus Sample Application capture](/assets/thingplus_sample_capture_3.png)
