@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/init_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="@dimen/thingplus_dev_width_height"
+            android:layout_height="@dimen/thingplus_dev_width_height"
+            android:layout_centerInParent="true"
+            android:src="@drawable/thingplus_dev"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sign_in_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:id="@+id/upper_side"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"/>
+
+        <ImageView
+            android:id="@+id/center_image"
+            android:layout_width="@dimen/thingplus_dev_width_height"
+            android:layout_height="@dimen/thingplus_dev_width_height"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/upper_side"
+            android:src="@drawable/thingplus_dev"/>
+
+        <Button
+            android:id="@+id/sign_in_btn"
+            android:layout_margin="@dimen/btn_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/center_image"
+            android:text="@string/sign_in_btn_text"
+            android:textSize="@dimen/btn_text_height" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/power_by_thingplus_text"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</FrameLayout>

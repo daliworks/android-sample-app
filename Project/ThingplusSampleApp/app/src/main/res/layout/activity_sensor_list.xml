@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.thingplus.sample.SensorListActivity">
+
+    <Button
+        android:id="@+id/sign_out_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/sign_out_btn_text"
+        android:textSize="@dimen/btn_text_height"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/widget_list_refresh_layout"
+        android:layout_below="@+id/sign_out_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/widget_list_view"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <Spinner
+        android:id="@+id/gateway_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_toLeftOf="@id/sign_out_btn"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/widget_list_refresh_layout" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/power_by_thingplus_text"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

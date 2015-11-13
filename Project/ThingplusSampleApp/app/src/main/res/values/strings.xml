@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">ThingplusSampleApp</string>
+
+    <string name="sign_in_dialog_title">Authorization with Thing+</string>
+    <string name="sign_in_btn_text">Sign in Thing+</string>
+    <string name="power_by_thingplus_text">powered by Thing+</string>
+    <string name="title_activity_sensor_list_title">Sensor List</string>
+    <string name="sign_in_progress_dialog_text">Signing in Thing+</string>
+
+    <!-- Strings for OAuth2 -->
+    <string name="oauth_code_request_url" formatted="false">
+        https://api.thingplus.net/v1/oauth2/authorize?response_type=%s&amp;client_id=%s&amp;redirect_uri=%s
+    </string>
+    <string name="oauth_request_type">code</string>
+    <string name="oauth_client_id">CLIENT_ID</string> <!-- Please replace your CLINET ID -->
+    <string name="oauth_client_secret">CLIENT_SECRET</string> <!-- Please replace your CLINET SECRET -->
+    <string name="oauth_redirect_uri">REDIRECT_URI</string> <!-- Please replace your REDIRECT URI -->
+    <string name="oauth_access_token_key">oauth_access_token_key</string>
+    <string name="toast_msg_oauth_access_token_request_fail">Failed to get access token\nPlease try again</string>
+    <string name="toast_msg_oauth_access_token_error_read_fail">Failed to read the error message</string>
+
+    <!-- Stirngs for SensorListActivity -->
+    <string name="sensor_list_gateway_name_hint">Gateway Name</string>
+    <string name="sensor_widget_sensor_name_hint">Sensor Name</string>
+    <string name="sensor_widget_sensor_value_hint">Sensor Value</string>
+    <string name="sensor_widget_sensor_update_time_hint">Updated Time</string>
+    <string name="sensor_list_progress_dialog_text">Getting Information</string>
+    <string name="sign_out_btn_text">Sign Out</string>
+    <string name="toast_msg_failed_to_get_data">Failed to get data, because of network connection\nPlease check your device, and then try again</string>
+    <string name="toast_msg_access_token_error">Current certification has a problem\nPlease sign in again</string>
+
+    <!-- Thingplus colors -->
+    <string name="thingplus_yellow">#ffcf0a</string>
+    <string name="thingplus_indigo">#212836</string>
+    <item name="thingplus_indigo" type="color">#212836</item>
+    <item name="thingplus_yellow" type="color">#ffcf0a</item>
+</resources>

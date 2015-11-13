@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/widget_list_sensor_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/sensor_widget_sensor_name_hint"
+        android:textSize="@dimen/sensor_widget_sensor_name_height"
+        android:layout_marginTop="@dimen/sensor_list_basic_margin"
+        android:layout_marginLeft="@dimen/sensor_list_basic_margin"
+        android:layout_marginRight="@dimen/sensor_list_basic_margin"/>
+
+    <ImageView
+        android:id="@+id/widget_list_sensor_icon"
+        android:layout_below="@id/widget_list_sensor_name"
+        android:layout_width="@dimen/sensor_widget_image_widget_height"
+        android:layout_height="@dimen/sensor_widget_image_widget_height"
+        android:layout_marginLeft="@dimen/sensor_list_basic_margin"
+        android:layout_marginBottom="@dimen/sensor_list_basic_margin"/>
+
+    <TextView
+        android:id="@+id/widget_list_sensor_value"
+        android:layout_below="@id/widget_list_sensor_name"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:hint="@string/sensor_widget_sensor_value_hint"
+        android:textSize="@dimen/sensor_widget_sensor_value_height"
+        android:layout_marginRight="@dimen/sensor_list_basic_margin"/>
+
+    <TextView
+        android:id="@+id/widget_list_sensor_updated_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_list_sensor_value"
+        android:gravity="right"
+        android:hint="@string/sensor_widget_sensor_update_time_hint"
+        android:layout_marginBottom="@dimen/sensor_list_basic_margin"
+        android:layout_marginRight="@dimen/sensor_list_basic_margin"/>
+
+</RelativeLayout>
