@@ -246,7 +246,11 @@ public class SensorListActivity extends AppCompatActivity {
             if (response.body() != null) {
                 mGateways = response.body();
                 for (Gateway gateway : mGateways) {
-                    mGatewayNames.add(gateway.getName() + " (" + gateway.getSensors().size() + ")");
+                    if (gateway.getSensors() != null) {
+                        mGatewayNames.add(gateway.getName() + " (" + gateway.getSensors().size() + ")");
+                    } else {
+                        mGatewayNames.add(gateway.getName());
+                    }
                 }
                 mSpinnerAdapter.notifyDataSetChanged();
                 dissmissDialog();
