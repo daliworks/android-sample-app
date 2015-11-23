@@ -165,52 +165,54 @@ public class SensorListActivity extends AppCompatActivity {
         mWidgets.clear();
         mSensorListAdapter.notifyDataSetChanged();
 
-        for (String sensorId : gateway.getSensors()) {
-            mManager.getSensorWithValue(gateway.getId(), sensorId, new Callback<Sensor>() {
-                @Override
-                public void onResponse(Response<Sensor> response, Retrofit retrofit) {
-                    if (!mCurrGateway.getId().equalsIgnoreCase(gateway.getId())) {
-                        return;
-                    }
-
-                    if (response.body() != null) {
-                        Sensor sensor = response.body();
-
-                        if (sensor.getSeries() != null) {
-                            Map<String, Object> series = (Map) sensor.getSeries();
-                            Object sensorValue = series.get(SENSOR_VALUE_KEY);
-                            long updatedTime = Long.valueOf(series.get(SENSOR_UPDATED_TIME_KEY).toString());
-
-                            Sensors newWidget = SensorUtil.getSensorWidget(
-                                    sensor.getType(),
-                                    sensor.getName(),
-                                    sensorValue,
-                                    updatedTime);
-
-                            if (newWidget != null) {
-                                mWidgets.add(newWidget);
-                                mSensorListAdapter.notifyDataSetChanged();
-                            } else {
-                                //TODO: If this sensor is not included in the SensorUtil, please implements it!
-                                Log.i(getString(R.string.app_name), sensor.getCategory() + " || " + sensor.getType());
-                            }
+        if (gateway.getSensors() != null) {
+            for (String sensorId : gateway.getSensors()) {
+                mManager.getSensorWithValue(gateway.getId(), sensorId, new Callback<Sensor>() {
+                    @Override
+                    public void onResponse(Response<Sensor> response, Retrofit retrofit) {
+                        if (!mCurrGateway.getId().equalsIgnoreCase(gateway.getId())) {
+                            return;
                         }
 
-                    } else {
-                        logOAuthTokenError(response.errorBody());
-                        notifyOAuthAccessTokenError();
-                    }
-                }
+                        if (response.body() != null) {
+                            Sensor sensor = response.body();
 
-                @Override
-                public void onFailure(Throwable t) {
-                    if (mCurrErrorGatewayId == null ||
-                            !mCurrErrorGatewayId.equalsIgnoreCase(gateway.getId())) {
-                        notifyNetworkError(false);
-                        mCurrErrorGatewayId = gateway.getId();
+                            if (sensor.getSeries() != null) {
+                                Map<String, Object> series = (Map) sensor.getSeries();
+                                Object sensorValue = series.get(SENSOR_VALUE_KEY);
+                                long updatedTime = Long.valueOf(series.get(SENSOR_UPDATED_TIME_KEY).toString());
+
+                                Sensors newWidget = SensorUtil.getSensorWidget(
+                                        sensor.getType(),
+                                        sensor.getName(),
+                                        sensorValue,
+                                        updatedTime);
+
+                                if (newWidget != null) {
+                                    mWidgets.add(newWidget);
+                                    mSensorListAdapter.notifyDataSetChanged();
+                                } else {
+                                    //TODO: If this sensor is not included in the SensorUtil, please implements it!
+                                    Log.i(getString(R.string.app_name), sensor.getCategory() + " || " + sensor.getType());
+                                }
+                            }
+
+                        } else {
+                            logOAuthTokenError(response.errorBody());
+                            notifyOAuthAccessTokenError();
+                        }
                     }
-                }
-            });
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        if (mCurrErrorGatewayId == null ||
+                                !mCurrErrorGatewayId.equalsIgnoreCase(gateway.getId())) {
+                            notifyNetworkError(false);
+                            mCurrErrorGatewayId = gateway.getId();
+                        }
+                    }
+                });
+            }
         }
     }
 
