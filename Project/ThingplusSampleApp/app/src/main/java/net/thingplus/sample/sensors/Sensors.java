@@ -13,7 +13,7 @@ public interface Sensors {
     public static final long ONE_SECONDE = 1000;
     public static final long ONE_MINUTE = 60;
     public static final String SECONDS_AGO = " seconds ago";
-    public static final String MINUTES_AGO = " minutes aog";
+    public static final String MINUTES_AGO = " minutes ago";
 
     public String getSensorType();
     public int getSensorIcon();
