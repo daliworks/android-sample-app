@@ -42,7 +42,7 @@ public class ActuatorWidget implements Sensors {
 
     @Override
     public String getSensorValue() {
-        return " ";
+        return NOT_IMPLEMENTED;
     }
 
     @Override

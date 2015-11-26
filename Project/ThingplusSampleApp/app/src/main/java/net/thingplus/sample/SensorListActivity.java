@@ -41,6 +41,8 @@ import com.squareup.okhttp.ResponseBody;
 import net.thingplus.sample.rest.gateways.Gateway;
 import net.thingplus.sample.rest.gateways.Sensor;
 import net.thingplus.sample.rest.gateways.ThingPlusApiWrapper;
+import net.thingplus.sample.sensors.ActuatorWidget;
+import net.thingplus.sample.sensors.SensorWidget;
 import net.thingplus.sample.sensors.Sensors;
 import net.thingplus.sample.sensors.util.SensorUtil;
 
@@ -60,6 +62,8 @@ public class SensorListActivity extends AppCompatActivity {
     private static final String SENSOR_VALUE_KEY = "value";
     private static final String SENSOR_UPDATED_TIME_KEY = "time";
     private static final String SENSOR_LIST_URL = "https://www.thingplus.net/#/asset?resourceType=gateway&itemId=";
+    private static final String CATEGORY_ACTUATOR = "actuator";
+    private static final String CATEGORY_SENSOR = "sensor";
 
     private WidgetListAdapter mSensorListAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -192,6 +196,14 @@ public class SensorListActivity extends AppCompatActivity {
                                     mWidgets.add(newWidget);
                                     mSensorListAdapter.notifyDataSetChanged();
                                 } else {
+                                    if (sensor.getCategory().equalsIgnoreCase(CATEGORY_ACTUATOR)) {
+                                        mWidgets.add(new ActuatorWidget(sensor.getName(), null, updatedTime));
+                                        mSensorListAdapter.notifyDataSetChanged();
+                                    } else if (sensor.getCategory().equalsIgnoreCase(CATEGORY_SENSOR)) {
+                                        mWidgets.add(new SensorWidget(sensor.getName(), null, updatedTime));
+                                        mSensorListAdapter.notifyDataSetChanged();
+                                    }
+
                                     //TODO: If this sensor is not included in the SensorUtil, please implements it!
                                     Log.i(getString(R.string.app_name), sensor.getCategory() + " || " + sensor.getType());
                                 }

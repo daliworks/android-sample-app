@@ -9,7 +9,6 @@
 package net.thingplus.sample.sensors.util;
 
 import net.thingplus.sample.sensors.AccelerometerWidget;
-import net.thingplus.sample.sensors.ActuatorWidget;
 import net.thingplus.sample.sensors.BuzzerWidget;
 import net.thingplus.sample.sensors.HumidityWidget;
 import net.thingplus.sample.sensors.LcdWidget;
@@ -29,7 +28,6 @@ public class SensorUtil {
         LIGHT(LightWidget.WIDGET_TYPE),
         TEMPERATURE(TemperatureWidget.WIDGET_TYPE),
         ON_OFF(OnOffWidget.WIDGET_TYPE),
-        ACTUATOR(ActuatorWidget.WIDGET_TYPE),
         POWER_SWITCH(PowerSwitchWidget.WIDGET_TYPE),
         NOISE(NoiseWidget.WIDGET_TYPE),
         ROTARY_ANGLE(RotaryAngleWidget.WIDGET_TYPE),
@@ -75,9 +73,6 @@ public class SensorUtil {
 
             case ON_OFF:
                 return new OnOffWidget(name, value, updatedTime);
-
-            case ACTUATOR:
-                return new ActuatorWidget(name, value, updatedTime);
 
             case POWER_SWITCH:
                 return new PowerSwitchWidget(name, value, updatedTime);
