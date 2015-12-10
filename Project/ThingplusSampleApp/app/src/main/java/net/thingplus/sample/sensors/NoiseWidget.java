@@ -35,8 +35,11 @@ public class NoiseWidget extends SensorWidget {
 
     @Override
     public String getSensorValue() {
-        DecimalFormat decimalFormat = new DecimalFormat(DECIMAL_FORMAT);
-        return decimalFormat.format(Float.valueOf((String) mValue));
+        if (mValue != null) {
+            DecimalFormat decimalFormat = new DecimalFormat(DECIMAL_FORMAT);
+            return decimalFormat.format(Float.valueOf((String) mValue));
+        }
+        return "";
     }
 
     @Override

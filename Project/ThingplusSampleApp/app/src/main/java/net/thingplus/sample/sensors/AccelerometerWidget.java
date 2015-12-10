@@ -41,19 +41,22 @@ public class AccelerometerWidget extends SensorWidget {
 
     @Override
     public String getSensorValue() {
-        StringBuilder sb = new StringBuilder();
-        Map<String, Object> value = (Map) mValue;
+        if (mValue != null) {
+            StringBuilder sb = new StringBuilder();
+            Map<String, Object> value = (Map) mValue;
 
-        sb.append(UNIT_X);
-        sb.append(value.get(KEY_X));
-        sb.append(LINE_SEPARATOR);
-        sb.append(UNIT_Y);
-        sb.append(value.get(KEY_Y));
-        sb.append(LINE_SEPARATOR);
-        sb.append(UNIT_Z);
-        sb.append(value.get(KEY_Z));
+            sb.append(UNIT_X);
+            sb.append(value.get(KEY_X));
+            sb.append(LINE_SEPARATOR);
+            sb.append(UNIT_Y);
+            sb.append(value.get(KEY_Y));
+            sb.append(LINE_SEPARATOR);
+            sb.append(UNIT_Z);
+            sb.append(value.get(KEY_Z));
 
-        return sb.toString();
+            return sb.toString();
+        }
+        return "";
     }
 
     @Override
