@@ -36,14 +36,17 @@ public class OnOffWidget extends SensorWidget {
 
     @Override
     public String getSensorValue() {
-        String value = (String) mValue;
+        if (mValue != null) {
+            String value = (String) mValue;
 
-        if (value.equalsIgnoreCase(ON_STATE)) {
-            return ON;
-        } else if (value.equalsIgnoreCase(OFF_STATE)) {
-            return OFF;
+            if (value.equalsIgnoreCase(ON_STATE)) {
+                return ON;
+            } else if (value.equalsIgnoreCase(OFF_STATE)) {
+                return OFF;
+            }
+            return (String) mValue;
         }
-        return (String) mValue;
+        return "";
     }
 
     @Override

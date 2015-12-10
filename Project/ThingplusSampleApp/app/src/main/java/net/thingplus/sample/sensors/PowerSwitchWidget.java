@@ -33,13 +33,16 @@ public class PowerSwitchWidget extends ActuatorWidget {
 
     @Override
     public String getSensorValue() {
-        StringBuilder sb = new StringBuilder();
-        Map<String, String> value = (Map) mValue;
+        if (mValue != null) {
+            StringBuilder sb = new StringBuilder();
+            Map<String, String> value = (Map) mValue;
 
-        sb.append(CMD);
-        sb.append(LINE_SEPARATOR);
-        sb.append(value.get(KEY_CMD).toUpperCase());
+            sb.append(CMD);
+            sb.append(LINE_SEPARATOR);
+            sb.append(value.get(KEY_CMD).toUpperCase());
 
-        return sb.toString();
+            return sb.toString();
+        }
+        return "";
     }
 }

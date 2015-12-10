@@ -35,8 +35,11 @@ public class LightWidget extends SensorWidget {
 
     @Override
     public String getSensorValue() {
-        DecimalFormat df = new DecimalFormat(DECIMAL_FORMAT);
-        return df.format(Double.valueOf((String) mValue));
+        if (mValue != null) {
+            DecimalFormat df = new DecimalFormat(DECIMAL_FORMAT);
+            return df.format(Double.valueOf((String) mValue));
+        }
+        return "";
     }
 
     @Override

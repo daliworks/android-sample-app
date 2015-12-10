@@ -33,13 +33,16 @@ public class BuzzerWidget extends ActuatorWidget {
 
     @Override
     public String getSensorValue() {
-        StringBuilder sb = new StringBuilder();
-        Map<String, Object> value = (Map) mValue;
+        if (mValue != null) {
+            StringBuilder sb = new StringBuilder();
+            Map<String, Object> value = (Map) mValue;
 
-        sb.append(CMD);
-        sb.append(LINE_SEPARATOR);
-        sb.append(value.get(KEY_CMD).toString());
+            sb.append(CMD);
+            sb.append(LINE_SEPARATOR);
+            sb.append(value.get(KEY_CMD).toString());
 
-        return sb.toString();
+            return sb.toString();
+        }
+        return "";
     }
 }

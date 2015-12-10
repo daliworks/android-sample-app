@@ -207,6 +207,28 @@ public class SensorListActivity extends AppCompatActivity {
                                     //TODO: If this sensor is not included in the SensorUtil, please implements it!
                                     Log.i(getString(R.string.app_name), sensor.getCategory() + " || " + sensor.getType());
                                 }
+                            } else {
+                                Sensors newWidget = SensorUtil.getSensorWidget(
+                                        sensor.getType(),
+                                        sensor.getName(),
+                                        null,
+                                        0);
+
+                                if (newWidget != null) {
+                                    mWidgets.add(newWidget);
+                                    mSensorListAdapter.notifyDataSetChanged();
+                                } else {
+                                    if (sensor.getCategory().equalsIgnoreCase(CATEGORY_ACTUATOR)) {
+                                        mWidgets.add(new ActuatorWidget(sensor.getName(), null, 0));
+                                        mSensorListAdapter.notifyDataSetChanged();
+                                    } else if (sensor.getCategory().equalsIgnoreCase(CATEGORY_SENSOR)) {
+                                        mWidgets.add(new SensorWidget(sensor.getName(), null, 0));
+                                        mSensorListAdapter.notifyDataSetChanged();
+                                    }
+
+                                    //TODO: If this sensor is not included in the SensorUtil, please implements it!
+                                    Log.i(getString(R.string.app_name), sensor.getCategory() + " || " + sensor.getType());
+                                }
                             }
 
                         } else {
