@@ -11,7 +11,7 @@
 
 - git clone https://github.com/daliworks/android-sample-app.git
 - Import the ThingplusSampleApp project in the Project folder on the Android Stuio
-- Replace below three values with your own OAuth2 information for [OAuth2 Authorization](http://oauth.net/2/) from **res/values/strings.xml**
+- Replace below three values with your own OAuth2 information for [OAuth2 Authorization](http://oauth.net/2/) from [**res/values/strings.xml**](https://github.com/daliworks/android-sample-app/blob/master/Project/ThingplusSampleApp/app/src/main/res/values/strings.xml#L15-L17)
  - Please refer [Thingplus support document](http://support.thingplus.net/ko/rest-api/getting-started.html) to generate your own OAuth2 Client ID, Client Secret and so on.
 
  ```
